@@ -1,6 +1,7 @@
 import './App.css';
 import ItemCard from './components/ItemCard';
 import zooCup from './images/zootahCup.jpeg';
+import React from 'react'
 
 export default function App() {
   return (
