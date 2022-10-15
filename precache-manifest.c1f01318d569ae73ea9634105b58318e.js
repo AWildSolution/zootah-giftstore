@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/zootah-giftstore/static/media/zootahCup.867a6eb9.jpeg"
   },
   {
-    "revision": "78e5da5593419d3e8029e3e67b77cb0c",
+    "revision": "42adad680a9d00a3cb77c1543a31a919",
     "url": "/zootah-giftstore/index.html"
   }
 ];

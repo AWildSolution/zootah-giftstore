@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/zootah-giftstore/precache-manifest.a33e6dd3d1c9a911a42b8b8cd37c5aba.js"
+  "/zootah-giftstore/precache-manifest.c1f01318d569ae73ea9634105b58318e.js"
 );
 
 workbox.clientsClaim();
