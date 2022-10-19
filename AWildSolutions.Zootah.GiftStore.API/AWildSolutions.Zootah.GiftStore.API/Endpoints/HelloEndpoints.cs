@@ -10,12 +10,18 @@ public class HelloEndpoints : IEndpoint
         
     }
 
+    /// <summary>
+    /// This is where your endpoints are going to be defined. You can either pass a function like the hello world or
+    /// do it like the hello your name endpoint
+    /// </summary>
+    /// <param name="app"></param>
     public void DefineEndpoints(WebApplication app)
     {
+        app.MapPost("/Hello/{name}", (string name) => Results.Ok($"Hello {name}"));
         app.MapGet("/Hello", HelloWorld);
     }
 
-    private IResult HelloWorld()
+    private static IResult HelloWorld()
     {
         return Results.Ok("Hello World");
     }
