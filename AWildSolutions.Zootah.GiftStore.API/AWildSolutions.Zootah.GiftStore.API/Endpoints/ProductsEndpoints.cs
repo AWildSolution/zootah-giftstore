@@ -11,8 +11,9 @@ public class ProductsEndpoints : IEndpoint
 
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("Products/GetAll", GetAll);
-        app.MapGet("Products/{id:guid}", Get);
+        var group = app.MapGroup("Products");
+        group.MapGet("GetAll", GetAll);
+        group.MapGet("{id:guid}", Get);
     }
 
     private void GetAll()

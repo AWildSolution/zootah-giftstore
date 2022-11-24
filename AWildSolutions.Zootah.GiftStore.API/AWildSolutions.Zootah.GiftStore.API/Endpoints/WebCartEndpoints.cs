@@ -11,10 +11,11 @@ public class WebCartEndpoints : IEndpoint
 
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("WebCart/{id:guid}", GetWebCart);
-        app.MapPost("WebCart/Create", CreateWebCart);
-        app.MapPut("WebCart/UpdateWebCart", UpdateWebCart);
-        app.MapDelete("WebCart/Delete", DeleteWebCart);
+        var group = app.MapGroup("WebCart");
+        group.MapGet("{id:guid}", GetWebCart);
+        group.MapPost("Create", CreateWebCart);
+        group.MapPut("UpdateWebCart", UpdateWebCart);
+        group.MapDelete("Delete", DeleteWebCart);
     }
 
     private void GetWebCart(Guid id)

@@ -17,12 +17,10 @@ public class HelloEndpoints : IEndpoint
     /// <param name="app"></param>
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapPost("/Hello/{name}", (string name) => Results.Ok($"Hello {name}"));
-        app.MapGet("/Hello", HelloWorld);
+        var group = app.MapGroup("Hello");
+        group.MapPost("{name}", (string name) => Results.Ok($"Hello {name}"));
+        group.MapGet("", HelloWorld);
     }
 
-    private static IResult HelloWorld()
-    {
-        return Results.Ok("Hello World");
-    }
+    private IResult HelloWorld() => Results.Ok("Hello World");
 }

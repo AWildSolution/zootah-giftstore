@@ -1,9 +1,7 @@
 using AWildSolutions.Zootah.GiftStore.API.Context;
 using AWildSolutions.Zootah.GiftStore.API.Extensions;
 using AWildSolutions.Zootah.GiftStore.API.Interfaces;
-using AWildSolutions.Zootah.GiftStore.API.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
