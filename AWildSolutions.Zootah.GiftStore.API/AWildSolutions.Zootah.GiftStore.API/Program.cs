@@ -13,7 +13,6 @@ builder.Services.AddDbContext<ProductContext>(options =>
 builder.Services.AddDbContext<WebCartContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.Add(ServiceDescriptor.);
 builder.Services.AddEndpointDefinitions(typeof(IEndpoint));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
