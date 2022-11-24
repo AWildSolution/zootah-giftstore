@@ -6,9 +6,9 @@ public static class EndpointExtension
 {
     public static void AddEndpointDefinitions(this IServiceCollection services, params Type[] scanMarkers)
     {
-        var endpointDefinitions = new List<IEndpoint>();
+        List<IEndpoint> endpointDefinitions = new List<IEndpoint>();
 
-        foreach (var marker in scanMarkers)
+        foreach (Type marker in scanMarkers)
         {
             endpointDefinitions.AddRange(
                 marker.Assembly.ExportedTypes
@@ -16,7 +16,7 @@ public static class EndpointExtension
                     .Select(Activator.CreateInstance).Cast<IEndpoint>());
         }
 
-        foreach (var endpoint in endpointDefinitions)
+        foreach (IEndpoint endpoint in endpointDefinitions)
         {
             endpoint.DefineServices(services);
         }
@@ -26,9 +26,9 @@ public static class EndpointExtension
 
     public static void UseEndpoint(this WebApplication app)
     {
-        var endpoints = app.Services.GetRequiredService<IReadOnlyCollection<IEndpoint>>();
+        IReadOnlyCollection<IEndpoint> endpoints = app.Services.GetRequiredService<IReadOnlyCollection<IEndpoint>>();
 
-        foreach (var endpoint in endpoints)
+        foreach (IEndpoint endpoint in endpoints)
         {
             endpoint.DefineEndpoints(app);
         }

@@ -17,7 +17,7 @@ public class HelloEndpoints : IEndpoint
     /// <param name="app"></param>
     public void DefineEndpoints(WebApplication app)
     {
-        var group = app.MapGroup("Hello");
+        RouteGroupBuilder group = app.MapGroup("Hello");
         group.MapPost("{name}", (string name) => Results.Ok($"Hello {name}"));
         group.MapGet("", HelloWorld);
     }

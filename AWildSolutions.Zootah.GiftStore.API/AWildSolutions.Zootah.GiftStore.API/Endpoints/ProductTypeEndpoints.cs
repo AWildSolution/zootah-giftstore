@@ -19,7 +19,7 @@ public class ProductTypeEndpoints : IEndpoint
 
     public void DefineEndpoints(WebApplication app)
     {
-        var group = app.MapGroup("ProductType");
+        RouteGroupBuilder group = app.MapGroup("ProductType");
         group.MapGet("ProductType/GetAll", GetAll)
             .Produces<IEnumerable<ProductType>>()
             .WithDescription("Get list of Product Types.  This is cached for 10 mins")
@@ -33,7 +33,7 @@ public class ProductTypeEndpoints : IEndpoint
 
     private IEnumerable<ProductType> GetAll()
     {
-        var list = _repo.GetAll();
+        IEnumerable<ProductType> list = _repo.GetAll();
         return list;
     }
 }

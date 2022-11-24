@@ -11,7 +11,7 @@ public class ProductsEndpoints : IEndpoint
 
     public void DefineEndpoints(WebApplication app)
     {
-        var group = app.MapGroup("Products");
+        RouteGroupBuilder group = app.MapGroup("Products");
         group.MapGet("GetAll", GetAll);
         group.MapGet("{id:guid}", Get);
     }

@@ -11,7 +11,7 @@ public class WebCartEndpoints : IEndpoint
 
     public void DefineEndpoints(WebApplication app)
     {
-        var group = app.MapGroup("WebCart");
+        RouteGroupBuilder group = app.MapGroup("WebCart");
         group.MapGet("{id:guid}", GetWebCart);
         group.MapPost("Create", CreateWebCart);
         group.MapPut("UpdateWebCart", UpdateWebCart);
