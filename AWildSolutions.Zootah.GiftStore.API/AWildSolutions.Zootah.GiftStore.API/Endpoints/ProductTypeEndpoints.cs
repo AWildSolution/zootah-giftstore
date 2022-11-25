@@ -6,12 +6,6 @@ namespace AWildSolutions.Zootah.GiftStore.API.Endpoints;
 
 public class ProductTypeEndpoints : IEndpoint
 {
-    private IRepository<ProductType> _repo;
-
-    public ProductTypeEndpoints(IRepository<ProductType> repo)
-    {
-        _repo = repo;
-    }
     public void DefineServices(IServiceCollection services)
     {
         services.AddTransient<IRepository<ProductType>, ProductTypeRepository<ProductType>>();
@@ -20,7 +14,7 @@ public class ProductTypeEndpoints : IEndpoint
     public void DefineEndpoints(WebApplication app)
     {
         RouteGroupBuilder group = app.MapGroup("ProductType");
-        group.MapGet("ProductType/GetAll", GetAll)
+        group.MapGet("GetAll", GetAll)
             .Produces<IEnumerable<ProductType>>()
             .WithDescription("Get list of Product Types.  This is cached for 10 mins")
             .AllowAnonymous()
@@ -31,9 +25,9 @@ public class ProductTypeEndpoints : IEndpoint
             });
     }
 
-    private IEnumerable<ProductType> GetAll()
+    private IEnumerable<ProductType> GetAll(IRepository<ProductType> repo)
     {
-        IEnumerable<ProductType> list = _repo.GetAll();
+        IEnumerable<ProductType> list = repo.GetAll();
         return list;
     }
 }

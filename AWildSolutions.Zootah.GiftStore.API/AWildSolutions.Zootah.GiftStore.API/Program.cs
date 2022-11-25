@@ -27,9 +27,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-ProductContext db = app.Services.GetRequiredService<ProductContext>();
-db.Database.EnsureCreated();
-
 app.UseEndpoint();
 
 app.UseHttpsRedirection();
