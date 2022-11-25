@@ -9,7 +9,7 @@ public class ProductContext : DbContext
     public DbSet<ProductType> ProductType { get; set; }
     public DbSet<ShirtSizes> ShirtSize { get; set; }
 
-    public ProductContext()
+    public ProductContext(DbContextOptions<ProductContext> options) : base(options)
     {
         
     }

@@ -7,7 +7,7 @@ public class WebCartContext :DbContext
 {
     public DbSet<WebCart> WebCart { get; set; }
 
-    public WebCartContext()
+    public WebCartContext(DbContextOptions<WebCartContext> options) : base(options)
     {
         
     }
